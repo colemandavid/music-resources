@@ -5,33 +5,43 @@
     composer = "Earth, Wind & Fire"
 }
 
-melody = \relative c'  {
-    s1 | s1 | s1 | s1 | s1 | s1 | s1 | s1
-}
-
 guitar_melody = \relative c''  {
     \once \override Score.RehearsalMark.self-alignment-X = #LEFT
     % Intro
     \mark \markup { \box Intro }   
-    r1 | r1 | r1 | r2 r4 r8 r16 g16 | \break
+    s1 | s1 | s1 | s2 s4 s8 s16 g16 | \break
 
-    % Vamp
-    \mark \markup { \box Vamp }   
+    \repeat volta 2 {
+         % Vamp
+        \mark \markup { \box Vamp }   
+        s1 | s1 | s1 | s1 \bar "||" \break
+
+        % Verse 1
+        \mark \markup { \box Verse }   
+        s1 | s1 | s1 | s1 | \break
+
+        s1 | s1 | s1 | s1 | \break
+
+        s1 | s1 | s1 | s1 | s1 | \break
+    }
+
+
+    % Chorus
+    \mark \markup { \box Chorus }
+    s1 | s1 | s1 | s1 | s1 \bar "||" \break
+
+    % Instrumental
+    \mark \markup {\box Instr }
+    s1 | s1 | s1 | s1 | \break
     s1 | s1 | s1 | s1 | \break
 
-    % Verse 1
-    \mark \markup { \box \bold Verse }   
-    g4 r4 r2 | r1 | r1 | r1 | \break
+    % Chorus
+    \repeat volta 2 {
+        \mark \markup { \box Chorus }
+        s1 | s1 | s1 | s1 | s1 | \break
+    }
+        
 
-    g4 r4 r2 | r1 | r1 | r1 | \break
-
-    s1 | s1 | s1 | s1 | \break
-
-    s1 | s1 | s1 | s1 | \break
-
-    % Vamp
-    \mark \markup { \box \bold Vamp }   
-    s1 | s1 | s1 | s1 | \break
 }
 
 guitar_bass = \relative c' {
@@ -42,16 +52,21 @@ guitar_bass = \relative c' {
     s1 | s1 | s1 | s1 |
 
     % Verse 1
-    a2 b2 | c2 d2 | c2  d2 | e,1 |
-
-    a2 b2 | c2 d2 | c2  d2 | e,1 
-
     s1 | s1 | s1 | s1 |
 
-    s1 | s1 | s1 | s1
+    s1| s1 | s1 | s1 | 
 
-    % Vamp
+    s1 | s1 | s1 | s1 | s1 |
+
+    % Chorus
+    s1 | s1 | s1 | s1 | s1 |
+
+    % Instrumental
+    s1 | s1 | s1 | s1 | 
     s1 | s1 | s1 | s1 |
+
+    % Chorus
+    e1 | f1 | g1 | a1 | b1 |
 }
 
 guitar_chords = {
@@ -69,21 +84,26 @@ guitar_chords = {
 
         a2:m b2:m | c2 d2 | c2 d2 | b2:7sus4 b2:7 |
 
-        e2:m fis2:m | g2 g4 g8 fis8:m | e2:m fis2:m | g2 g4 g8 fis8:m |
+        e4:m fis4:m g4 g8 fis8:m | e4:m fis4:m g4 g8 fis8:m |
 
-        e2:m fis2:m | g2 g4 g8 a8: | b1:sus4 | b1
+        e4:m fis4:m g4 g8 a8 | b1:sus4 | b1 |
 
-        % Vamp
-        e:m | e:m | e:m | e:m |
+        % Chorus
+        e2:m7 a2:m7 | c2/d2 g2:maj7 | b2:m7 c2:maj7 | a2:m fis2:7/ais2 | b1:7
 
+        % Instrumental
+        g2:m  d2:m | ees2 bes2 | c2 d2 | g1:m | 
+        e1:m | e2:m e4:m a4 | b1:sus4 | b1 | 
+
+        % Chorus
+        e2:m7 a2:m7 | c2/d2 g2:maj7 | b2:m7 c2:maj7 | a2:m fis2:7/ais2 | b1:7
+
+        
       }
     }
 
 \score {
     <<
-%    \new Staff {
-%        \melody
-%    }
     \context ChordNames { \guitar_chords }
     \new Staff  {
         \key e \minor
