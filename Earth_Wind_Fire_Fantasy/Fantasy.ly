@@ -5,16 +5,17 @@
     composer = "Earth, Wind & Fire"
 }
 
-guitar_melody = \relative c''  {
+guitar_melody = \relative c  {
+    \clef "treble_8"
     \once \override Score.RehearsalMark.self-alignment-X = #LEFT
     % Intro
     \mark \markup { \box Intro }   
-    s1 | s1 | s1 | s2 s4 s8 s16 g16 | \break
+    s1 | s1 | s1 | s1 | \break
 
     \repeat volta 2 {
          % Vamp
         \mark \markup { \box Vamp }   
-        s1 | s1 | s1 | s1 \bar "||" \break
+        s1 | s1 | s1 | s2 s4 s16 e'16 fis16 g16 \bar "||" \break
 
         % Verse 1
         \mark \markup { \box Verse }   
@@ -44,15 +45,15 @@ guitar_melody = \relative c''  {
 
 }
 
-guitar_bass = \relative c' {
+guitar_bass = \relative c {
     % Intro
-    e1 | e1 | e1 | e1 |
+    s1 | s1 | s1 | s1 |
 
     % Vamp
     s1 | s1 | s1 | s1 |
 
     % Verse 1
-    s1 | s1 | s1 | s1 |
+    a2 b2 | s1 | s1 | s1 |
 
     s1| s1 | s1 | s1 | 
 
@@ -68,6 +69,32 @@ guitar_bass = \relative c' {
     % Chorus
     e1 | f1 | g1 | a1 | b1 |
 }
+
+guitar_tab = \relative c' {
+    % Intro
+    s1 | s1 | s1 | s1 |
+
+    % Vamp
+    s1 | s1 | s1 | s2 s4 s16 e16\0 fis16\2 g16\2 |
+
+    % Verse 1
+    <<g4\2 a,,4\6>> <<g'16\4 c16\3>> <<g16\4 c16\3>> a'16\2 g16\2 fis4\2 b,,8\6 << a'8\4 d8\3 >> << a8\4 d8\3 >> e16\0 fis16\2 g16\2 | s1 | s1 | s1 |
+    a,8\5 << c''8\2 a8\3 >> << b8\2 g8\3 >> << a8\2 fis8\3 >> b2\6 | s1 | s1 | s1 | 
+
+    s1 | s1 | s1 | s1 |
+
+    % Chorus
+    s1 | s1 | s1 | s1 | s1 |
+
+    % Instrumental
+    s1 | s1 | s1 | s1 | 
+    s1 | s1 | s1 | s1 |
+
+    % Chorus
+    s1 | s1 | s1 | s1 | s1 |
+}
+
+   
 
 guitar_chords = {
     \chordmode { 
@@ -108,6 +135,9 @@ guitar_chords = {
     \new Staff  {
         \key e \minor
         << \guitar_melody \\  \guitar_bass >>
+    }
+    \new TabStaff {
+        \guitar_tab
     }
 
     >>
