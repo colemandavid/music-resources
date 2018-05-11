@@ -8,14 +8,22 @@
 guitar_melody = \relative c  {
     \clef "treble_8"
     \once \override Score.RehearsalMark.self-alignment-X = #LEFT
+    \set stringNumberOrientations = #'(up)
     % Intro
     \mark \markup { \box Intro }   
-    s1 | s1 | s1 | s1 | \break
+    e'4\1 ^\markup {\fret-diagram #"6-o;5-2;4-2;3-o;2-o;1-o;" } b8\2 e8\1
+    fis4\1 ^\markup { \fret-diagram #"c:5-1-2;6-x;5-2;4-4;3-4;2-3;1-2;" } e8\1 d8\2 | 
+    e4\1 ^\markup {\fret-diagram #"6-x;5-3;4-2;3-o;2-1;1-o;" } c8\2 e8\1
+    d4\2 ^\markup {\fret-diagram #"f:2;6-3-3;5-2-2;4-o;3-o;2-3-4;1-x;" } c8\2 b8\2 |
+    cis4\2 ^\markup {\fret-diagram #"f:2;6-x;5-o;4-2-2;3-2-3;2-2-4;1-o;" } b8\2 cis8\2
+    dis4\2 ^\markup { \fret-diagram #"f:2;c:5-1-2;6-x;5-2-1;4-3-2;3-3-3;2-3-4;1-2-1;" } cis4\2 | 
+    a'2\1 ^\markup { \fret-diagram #"f:2;c:3-1-4;6-o;5-x;4-o;3-4-1;2-4-1;1-5-2;" } gis4\1 fis4\2-4 | 
+    \autoBeamOff \grace g,16\4 <<gis2\4~ gis'2\1~>> <<gis,4\4~ gis'4\1~>> <<gis,8\4 gis'8\1>> \autoBeamOn r8 | \break
 
     \repeat volta 2 {
          % Vamp
         \mark \markup { \box Vamp }   
-        s1 | s1 | s1 | s2 s4 s16 e'16 fis16 g16 \bar "||" \break
+        s1 | s1 | s1 | s2 s4 s16 e16\6 fis16\5 g16\5 \bar "||" \break
 
         % Verse 1
         \mark \markup { \box Verse }   
@@ -46,8 +54,9 @@ guitar_melody = \relative c  {
 }
 
 guitar_bass = \relative c {
+    \set stringNumberOrientations = #'(down)
     % Intro
-    s1 | s1 | s1 | s1 |
+    e,2\6 b'2\5 | c2\5 g2\6 | a2\5 b2\5 | e,1\6 | r2 e2\6 |
 
     % Vamp
     s1 | s1 | s1 | s1 |
@@ -101,7 +110,7 @@ guitar_chords = {
         \set noChordSymbol = "" 
         \set chordChanges = ##t
         % Intro
-        e2:m  b2:m | c2 g2 | a2 b2 | e1:m |
+        e2:m  b2:m | c2 g2 | a2 b2 | e2:sus4 e2 | e1:m |
 
         % Vamp
         e:m | e:m | e:m | e:m |
@@ -136,9 +145,5 @@ guitar_chords = {
         \key e \minor
         << \guitar_melody \\  \guitar_bass >>
     }
-    \new TabStaff {
-        \guitar_tab
-    }
-
     >>
 }
