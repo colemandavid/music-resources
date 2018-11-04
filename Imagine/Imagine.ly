@@ -25,9 +25,9 @@ guitar_melody = \relative c  {
     <<a4 f4>> <<a4 f4>> <<a4 f4>> a16 ais16 b8 | \break
 
     \repeat volta 4 {
-    % Verse 1
+    % Verse 1/2
     \mark \markup { \box Verse }   
-    s1 | s1 | s1 | s1 | \break 
+    r4 g16 g16 g8 g4 b8 b8  | a4 r4 r4 a16 ais16 b8 | s1 | s1 | \break 
     s1 | s1 | s1 | s1 | \break
 
     s1 | s1 | s1 | s1 | \break
@@ -36,7 +36,19 @@ guitar_melody = \relative c  {
     % Chorus
     \mark \markup { \box Chorus }   
     s1 | s1 | s1 | s1 | \break
-    s1 | s1 | s1 | s1 | 
+    s1 | s1 | s1 | s1 | \bar "||" \break
+
+    % Verse 3
+    \mark \markup { \box Verse }   
+    r4 g16 g16 g8 g4 b8 b8  | a4 r4 r2 | s1 | s1 | \break 
+    s1 | s1 | s1 | s1 | \break
+    s1 | s1 | s1 | s1 | \bar "||" \break
+    
+
+    % Chorus
+    \mark \markup { \box Chorus }   
+    s1 | s1 | s1 | s1 | \break
+    s1 | s1 | s1 | s1 | \bar "||"   
 }
 
 guitar_bass = \relative c {
@@ -47,14 +59,23 @@ guitar_bass = \relative c {
     s8 c4 c4 c4 c8 | 
     s8 c4 c4 c4 s8 |
 
-    % Verse 1
+    % Verse 1/2
     c2 c2 | c2 c2 | c2 c2 | c2 c2 | 
     c2 c2 | c2 c2 | c2 c2 | c2 c2 | 
-    s1 | s1 | s1 | s1 | 
+    f2 e2 | d2 c2 | g1 | g1 | 
 
     % Chorus
     s1 | s1 | s1 | s1 | 
     s1 | s1 | s1 | s1 | 
+
+    % Verse 3
+    c2 c2 | c2 c2 | c2 c2 | c2 c2 | 
+    c2 c2 | c2 c2 | c2 c2 | c2 c2 | 
+    f2 e2 | d2 c2 | g1 | g1 | 
+
+    % Chorus
+    s1 | s1 | s1 | s1 | 
+    s1 | s1 | s1 | s1 |     
     
 }
 
@@ -63,15 +84,23 @@ guitar_tab = \relative c {
     <<e8 g8>> c,8 <<e8 g8>> c,8  <<e8 g8>> c,8  <<g'8 b8>> c,8  | 
     <<a'8 f8>> c8 <<a'8 f8>> c8  <<a'8 f8>> c8  a'16 ais16 b8\3  | s1 | s1 |
 
-    % Verse 1
+    % Verse 1/2
     s1 | s1 | s1 | s1 | 
     s1 | s1 | s1 | s1 |
     s1 | s1 | s1 | s1 |
 
     % Chorus
-    s1 | s1 | s1 | s1 | 
+    r4 g4 g2 | s1 | s1 | s1 | 
     s1 | s1 | s1 | s1 | 
 
+    % Verse 3
+    s1 | s1 | s1 | s1 | 
+    s1 | s1 | s1 | s1 |
+    s1 | s1 | s1 | s1 |
+
+    % Chorus
+    r4 g4 g2 | s1 | s1 | s1 | 
+    s1 | s1 | s1 | s1 | 
 }
 
 guitar_chords = {
@@ -81,7 +110,7 @@ guitar_chords = {
         % Intro
         c1:maj7  | f1/c | c1:maj7 | f1/c
 
-        % Verse 1
+        % Verse 1/2
         c1:maj7 | f1/c | c1:maj7 | f1/c | 
         c1:maj7 | f1/c | c1:maj7 | f1/c |
 
@@ -91,6 +120,15 @@ guitar_chords = {
         f2 g2 | c2 e2:7 | f2 g2 | c2 e2:7 |
         f2 g2 | c2 e2:7 | f2 g2 | c1  |
 
+        % Verse 3
+        c1:maj7 | f1/c | c1:maj7 | f1/c | 
+        c1:maj7 | f1/c | c1:maj7 | f1/c |
+
+        f2 a2:m/e | d2:m d2:m/c | g1 | g1:7 | 
+
+        % Chorus
+        f2 g2 | c2 e2:7 | f2 g2 | c2 e2:7 |
+        f2 g2 | c2 e2:7 | f2 g2 | c1  |
 
       }
     }
